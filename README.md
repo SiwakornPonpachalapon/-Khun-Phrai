@@ -181,25 +181,8 @@ ReadyToIron
 | Left Click | โจมตี |
 | Q | Dash / Dodge |
 | F | Interaction |
-| M | เปิด/ปิดแผนที่ |
 
 ---
-
-## 📂 Source Code
-
-Source Code หลักของระบบ Gameplay พัฒนาด้วยภาษา **C#** และจัดเก็บอยู่ภายในโปรเจกต์ Unity
-
-```text
-Assets/
-└── Scripts/
-    ├── Player/
-    ├── Enemy/
-    ├── Combat/
-    ├── Interaction/
-    ├── Manager/
-    ├── UI/
-    └── Systems/
-```
 
 > โครงสร้าง Folder ในส่วนนี้สามารถปรับให้ตรงกับโครงสร้างจริงของ Repository ได้
 
