@@ -27,6 +27,7 @@
 - ระบบ Dash / Dodge
 - ระบบตรวจจับการโจมตี
 - ระบบ Enemy AI
+- ระบบ Quest และ NPC Dialogue
 - ระบบ Animation
 - ระบบเก็บทรัพยากรและ Interaction
 - ระบบ Inventory / Resource
@@ -36,6 +37,47 @@
 - ระบบ Upgrade
 - ระบบ Save / Load
 - ระบบ UI ภายในเกม
+
+---
+
+# 💻 ตัวอย่าง Source Code
+
+Repository นี้รวบรวม **ตัวอย่าง Source Code บางส่วน** จากระบบหลักของเกมขุนพรายที่พัฒนาด้วย **Unity และ C#**
+
+Source Code ที่นำมาแสดงเป็นส่วนหนึ่งของโปรเจกต์ โดยโปรเจกต์ฉบับเต็มยังมี Script และระบบอื่น ๆ ที่ทำงานร่วมกันภายในเกม
+
+### ⚔️ Player & Combat System
+
+ระบบควบคุมตัวละครและการต่อสู้ เช่น Movement, Run, Dash, Combo Attack, Hit Detection และการจัดการ State ของผู้เล่น
+
+- [ดู PlayerCombat.cs →](SourceCode/PlayerCombat.cs)
+- [ดู PlayerMoveMent.cs →](SourceCode/PlayerMoveMent.cs)
+- [ดู PlayerManager.cs →](SourceCode/PlayerManager.cs)
+
+### 🤖 Enemy System
+
+ระบบจัดการ State ของศัตรู การโจมตี การรับ Damage, Hit Stun และการเชื่อมต่อการกำจัดศัตรูเข้ากับระบบ Quest
+
+- [ดู EnemyManager.cs →](SourceCode/EnemyManager.cs)
+- [ดู EnemyState.cs →](SourceCode/EnemyState.cs)
+- [ดู EnemyAttack.cs →](SourceCode/EnemyAttack.cs)
+- [ดู EnemyHealth.cs →](SourceCode/EnemyHealth.cs)
+
+> ระบบ Enemy Movement และ Detection อยู่ระหว่างการปรับปรุง เพื่อเปลี่ยนรูปแบบการตรวจจับผู้เล่นและพฤติกรรมการไล่ตามให้เหมาะสมกับ Gameplay มากขึ้น
+
+### 📜 Quest & Dialogue System
+
+ระบบจัดการ Quest และบทสนทนากับ NPC โดยเชื่อมต่อความคืบหน้าของ Quest เข้ากับทรัพยากร การทำภารกิจ การกำจัดศัตรู และการได้รับอาวุธ
+
+- [ดู QuestManager.cs →](SourceCode/QuestManager.cs)
+- [ดู NPCDialogue.cs →](SourceCode/NPCDialogue.cs)
+- [ดู WeaponManager.cs →](SourceCode/WeaponManager.cs)
+
+### ☀️ Day & Night System
+
+ระบบเวลาและกลางวัน-กลางคืนภายในเกม มีการนับจำนวนวัน เปลี่ยนแสงตามช่วงเวลา และบันทึกข้อมูลเวลา
+
+- [ดู DayNight.cs →](SourceCode/DayNight.cs)
 
 ---
 
@@ -65,15 +107,33 @@
 
 ## 🤖 Enemy AI
 
-พัฒนาระบบพื้นฐานสำหรับควบคุมพฤติกรรมของศัตรู เช่น
+ระบบพื้นฐานสำหรับควบคุมพฤติกรรมและสถานะของศัตรู เช่น
 
-- ตรวจจับผู้เล่น
-- เคลื่อนที่เข้าหาผู้เล่น
-- ตรวจสอบระยะโจมตี
-- เปลี่ยนสถานะระหว่างการเดินและโจมตี
-- รับ Damage จากผู้เล่น
-- ระบบ Stun เมื่อถูกโจมตี
+- State: Idle, Chase, Attack, Hit และ Dead
+- การโจมตีผู้เล่น
+- การรับ Damage
+- ระบบ Hit Stun
+- ระบบ Knockback
+- เชื่อมต่อการกำจัดศัตรูเข้ากับระบบ Quest
 - Animation การเคลื่อนที่และโจมตี
+
+> ระบบ Movement และ Detection ของศัตรูยังอยู่ระหว่างการพัฒนาและปรับปรุง
+
+---
+
+## 📜 Quest & Dialogue System
+
+ระบบ Quest เชื่อมต่อกับระบบ Gameplay ต่าง ๆ ภายในเกม โดยผู้เล่นสามารถรับภารกิจและติดตามความคืบหน้าผ่านการสนทนากับ NPC
+
+ตัวอย่างภารกิจภายในเกม เช่น
+
+- รวบรวมทรัพยากร ไม้ หิน และเหล็ก
+- นำทรัพยากรไปเก็บในโกดัง
+- อัปเกรดบ้าน
+- ปลดล็อกอาวุธ
+- กำจัดศัตรูตามจำนวนที่กำหนด
+
+ข้อมูลความคืบหน้าของ Quest สามารถบันทึกและโหลดกลับมาได้
 
 ---
 
@@ -166,6 +226,7 @@ ReadyToIron
 - **C#** — ภาษาหลักสำหรับพัฒนาระบบ Gameplay
 - **Unity Input System** — จัดการ Input ของผู้เล่น
 - **Animator / Blend Tree** — จัดการ Character Animation
+- **NavMesh Agent** — ใช้สำหรับการเคลื่อนที่ของ Enemy
 - **Physics / Raycast / Overlap Detection** — ตรวจจับ Interaction และ Combat
 - **PlayerPrefs** — ใช้จัดเก็บข้อมูลบางส่วนของเกม
 - **Mixamo** — Animation สำหรับตัวละคร
@@ -179,6 +240,7 @@ ReadyToIron
 | W A S D | เคลื่อนที่ |
 | Mouse | ควบคุมกล้อง |
 | Left Click | โจมตี |
+| Right Click | เล็ง |
 | Q | Dash / Dodge |
 | F | Interaction |
 
@@ -188,7 +250,7 @@ ReadyToIron
 
 **อยู่ระหว่างการพัฒนา (In Development)**
 
-ปัจจุบันมุ่งเน้นการพัฒนาระบบ Gameplay หลัก การเชื่อมต่อระบบต่าง ๆ และการปรับปรุง Combat ให้มีความลื่นไหลและตอบสนองต่อผู้เล่นมากขึ้น
+ปัจจุบันมุ่งเน้นการพัฒนาระบบ Gameplay หลัก การเชื่อมต่อระบบต่าง ๆ และการปรับปรุง Combat และ Enemy AI ให้มีความลื่นไหลและตอบสนองต่อผู้เล่นมากขึ้น
 
 โปรเจกต์นี้ยังมีระบบบางส่วนที่อยู่ระหว่างการพัฒนาและปรับปรุง
 
@@ -198,7 +260,7 @@ ReadyToIron
 
 โปรเจกต์ขุนพรายเป็นโปรเจกต์ที่ใช้สำหรับพัฒนาทักษะด้าน **Game Development** โดยเฉพาะการออกแบบและเขียนระบบ Gameplay ด้วย Unity และ C#
 
-สิ่งที่ได้เรียนรู้จากโปรเจกต์นี้ ได้แก่ การออกแบบโครงสร้างระบบ การจัดการ State ของ Player การทำให้หลายระบบทำงานร่วมกัน การแก้ไข Bug และการปรับปรุงระบบจากการทดสอบ Gameplay
+สิ่งที่ได้เรียนรู้จากโปรเจกต์นี้ ได้แก่ การออกแบบโครงสร้างระบบ การจัดการ State ของ Player และ Enemy การทำให้หลายระบบทำงานร่วมกัน การแก้ไข Bug และการปรับปรุงระบบจากการทดสอบ Gameplay
 
 ---
 
