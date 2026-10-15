@@ -8,7 +8,7 @@
 
 เกมแอ็กชันผจญภัยในบรรยากาศไทยช่วงปลายสมัยอยุธยา ที่ผสมผสานการต่อสู้เน้นจังหวะ การเก็บทรัพยากร และการทำเควส
 
-![Khun Phrai Gameplay](Images/Exploration1.png)
+![Khun Phrai Gameplay](Images/Icon.png)
 
 [🎮 ดาวน์โหลดเกม (Google Drive)](https://drive.google.com/drive/folders/1kAJLzFkfsTwdUesgPTJleMe115SiAFdR?usp=sharing) · [▶ ชม Gameplay (YouTube)](https://youtu.be/PA07TFfA_A0) · [📝 แบบประเมินเกม](https://docs.google.com/forms/d/e/1FAIpQLScyswgT1rDhxfuUVcxx-9Fqqdv4ydaaUy7delnOMRzaPxOOgA/viewform)
 </div>
